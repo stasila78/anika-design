@@ -405,7 +405,7 @@ span {
     padding: 100px 10px 20px 30px; }
   .header__nav.active {
     top: 0px;
-    height: 60%; } }
+    height: 100%; } }
 
 @media (max-width: 1020px) and (max-width: 1020px) {
   .header__ul {

@@ -1,0 +1,619 @@
+//<МИКСИНЫ>===============================================================================================
+@mixin anim($time, $delay) {
+  -webkit-transition: all $time ease $delay;
+  -moz-transition: all $time ease $delay;
+  -ms-transition: all $time ease $delay;
+  -o-transition: all $time ease $delay;
+  transition: all $time ease $delay;
+}
+@mixin anim_cubic($time, $delay) {
+  -webkit-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  -moz-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  -ms-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  -o-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+}
+@mixin rotate($deg) {
+  -moz-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  -webkit-transform: rotate($deg);
+  -o-transform: rotate($deg);
+  transform: rotate($deg);
+}
+@mixin scale($num) {
+  -moz-transform: scale($num);
+  -ms-transform: scale($num);
+  -webkit-transform: scale($num);
+  -o-transform: scale($num);
+  transform: scale($num);
+}
+@mixin skew($num) {
+  -webkit-transform: skewX($num);
+  -moz-transform: skewX($num);
+  -ms-transform: skewX($num);
+  -o-transform: skewX($num);
+  transform: skewX($num);
+}
+@mixin cnt($h) {
+  display: flex;
+  flex-direction: column;
+  height: $h;
+  text-align: center;
+  align-items: stretch;
+  justify-content: center;
+}
+@mixin tr($x, $y, $z) {
+  transform: translate3d($x, $y, $z);
+}
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 0;
+}
+@mixin flexorder($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+@mixin accent {
+  color: #ff4d00;
+}
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:900,400,600&display=swap");
+
+@font-face{
+  font-family:'Bebas Neue';
+  src:local("Bebas Neue Thin"), local("BebasNeue-Thin"),url(../fonts/bebas/bebasneuethin.woff2) format("woff2"),url(../fonts/bebas/bebasneuethin.woff) format("woff"),url(../fonts/bebas/bebasneuethin.ttf) format("truetype"); font-weight:100;font-style:normal}
+@font-face{
+  font-family:'Bebas Neue';
+  src:local("Bebas Neue Light"),local("BebasNeue-Light"),url(../fonts/bebas/bebasneuelight.woff2) format("woff2"),url(../fonts/bebas/bebasneuelight.woff) format("woff"),url(../fonts/bebas/bebasneuelight.ttf) format("truetype");font-weight:200;font-style:normal}
+@font-face{
+  font-family:'Bebas Neue';
+  src:local("Bebas Neue Book"),local("BebasNeueBook"),url(../fonts/bebas/bebasneuebook.woff2) format("woff2"),url(../fonts/bebas/bebasneuebook.woff) format("woff"),url(../fonts/bebas/bebasneuebook.ttf) format("truetype");font-weight:300;font-style:normal}
+@font-face{
+  font-family:'Bebas Neue';
+  src:local("Bebas Neue Regular"),local("BebasNeueRegular"),url(../fonts/bebas/bebasneueregular.woff2) format("woff2"),url(../fonts/bebas/bebasneueregular.woff) format("woff"),url(../fonts/bebas/bebasneueregular.ttf) format("truetype");font-weight:400;font-style:normal}
+@font-face{
+  font-family:'Bebas Neue';
+  src:local("Bebas Neue Bold"),local("BebasNeueBold"),url(../fonts/bebas/bebasneuebold.woff2) format("woff2"),url(../fonts/bebas/bebasneuebold.woff) format("woff"),url(../fonts/bebas/bebasneuebold.ttf) format("truetype");font-weight:700;font-style:normal}
+//</Подключаем шрифты>=======================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily: "Fira Sans";
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minwidth: 320px;
+$mw: 100%;
+$md1: $mw + 12;
+$md2: 992.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+aside,
+nav,
+footer,
+header,
+section {
+  display: block;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  min-width: $minwidth;
+  position: relative;
+  width: 100%;
+  color: #000;
+}
+body {
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  font-family: $fontfamily;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  &.lock {
+    overflow: hidden;
+    @media (max-width: $md3+px) {
+      width: 100%;
+      position: fixed;
+      overflow: hidden;
+    }
+  }
+}
+body {
+  font-family: Fira sans;
+  color: #323232;
+  font-size: 1em;
+}
+input,
+button,
+textarea {
+  font-family: $fontfamily;
+}
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+
+.wrap {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+  position: relative;
+}
+h1 {
+  font-size: 5em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: Bebas Neue;
+  font-weight: 700;
+  font-size: 3.75em;
+  line-height: 120%;
+  margin: 0;
+  padding: 0;
+  color: #323232;
+  text-align: left;
+}
+
+h2 {
+  font-size: 3em;
+  padding-right: 20px;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+h6 {
+  font-size: 14px;
+  color: #666666;
+  font-weight: 100;
+}
+
+p {
+  padding-top: 20px;
+  line-height: 150%;
+}
+
+span {
+  font-weight: 600;
+}
+
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container {
+  max-width: $mw + px;
+  margin: 0 auto;
+  width: 100%;
+  padding-right: 5%;
+  padding-left: 5%;
+  padding-bottom: 3%;
+}
+.container__footer {
+  max-width: $mw + px;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 25px;
+  padding-right: 5%;
+  padding-left: 5%;
+  padding-bottom: 5%;
+  @media (max-width: $md1+px) {
+    max-width: 970px;
+  }
+  @media (max-width: $md2+px) {
+    max-width: 750px;
+  }
+  @media (max-width: $md3+px) {
+    max-width: none;
+    padding: 0 10px;
+  }
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+@import "popup.scss";
+@import "header.scss";
+@import "footer.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+html {
+  scroll-behavior: smooth;
+}
+.wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  height: auto;
+  padding-top: 40px;
+}
+@media (max-width: 768px) {
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    padding-top: 40px;
+    @media (max-width: 320px) {
+      padding-top: 20px;
+    }
+  }
+  .services__title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .services__suptitle-text {
+    padding-top: 10px;
+  }
+  ul.list {
+    padding-top: 20px;
+    @media (max-width: 768px) {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+.colomn__left {
+  width: 33%;
+  margin-right: 1%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+.colomn__righ {
+  width: 66%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.colomn__slide {
+  width: 100%;
+}
+
+.buttonbe {
+  margin-top: 30px;
+  display: flex;
+  width: 180px;
+  height: 50px;
+  align-items: center;
+  text-transform: uppercase;
+  background-color: #000;
+  transition: ease 0.3s;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(26, 26, 26);
+  }
+}
+
+.button__link {
+  margin: 0 auto;
+}
+.button__link a {
+  color: #fff;
+}
+
+//<STUDIO>-------------------------------------------
+
+.intro__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 300px;
+  @media (max-width: 768px) {
+    margin-top: 150px;
+  }
+  @media (max-width: 320px) {
+    margin-top: 100px;
+  }
+}
+.studio__body {
+  position: relative;
+  display: block;
+  width: 100%;
+  background-color: rgb(207, 207, 207);
+}
+.studio__label {
+  widows: 100%;
+}
+.studio__img {
+  width: 100%;
+  background-color: #000;
+  padding-left: 4%;
+  padding-right: 5%;
+}
+@media (max-width: 1150px) {
+  .studio {
+    width: 100%;
+  }
+}
+.studio__text p {
+  padding-top: 40px;
+  line-height: 150%;
+}
+.web__work {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  @media (max-width: 320px) {
+    margin-top: 20px;
+  }
+}
+
+//<SERVICES>----------------------------------------------------------
+
+.web__services {
+  position: relative;
+  background-color: #f5f5f5;
+}
+.services__img {
+  position: absolute;
+  top: center;
+  right: 0;
+  opacity: 30%;
+  z-index: -1;
+  @media (max-width: 1150px) {
+    display: none;
+  }
+  @media (max-width: 425px) {
+    display: none;
+  }
+}
+.services__title {
+  padding-bottom: 60px;
+  @media (max-width: 768px) {
+    padding-bottom: 30px;
+  }
+}
+.text__title {
+  display: block;
+}
+span {
+  font-weight: 600;
+}
+.text {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+h3.title {
+  padding-right: 20px;
+}
+.text li {
+  padding-top: 15px;
+  list-style: 1px;
+}
+.services__subtitle {
+  display: flex;
+  align-items: center;
+}
+.external__link a {
+  display: block;
+  transition: ease 0.3s;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.10)
+  }
+}
+.services__suptitle-text {
+  padding-top: 40px;
+  max-width: 450px;
+  @media (max-width: 768px) {
+    padding-top: 10px;
+  }
+}
+ul.list {
+  padding-top: 60px;
+  @media (max-width: 768px) {
+    padding-top: 20px;
+  }
+}
+.list-services {
+  padding-top: 15px;
+  list-style-type: disc;
+}
+
+//<CONTACT>-----------------------------------------------------------
+
+.wrap-contacts {
+  display: flex;
+  padding-top: 150px;
+  padding-bottom: 100px;
+  background-color: #fff;
+  @media (max-width: 768px) {
+    padding-top: 50px;
+  }
+  @media (max-width: 320px) {
+    padding-top: 20px;
+  }
+}
+.title__contact {
+  z-index: -1;
+  font-family: Fira Sans;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 150px;
+  color: rgba(0, 0, 0, 0.03);
+  transform: rotate(-90deg);
+}
+.contact__web {
+  max-width: 560px;
+}
+.contact__text {
+  display: flex;
+}
+li.contact {
+  list-style: none;
+  padding-bottom: 20px;
+}
+
+li.contact a{
+	color: #323232;
+	transition: ease 0.3s;
+	&:hover{
+		color: #ff4d00;
+	}
+}
+.contact__text-bold {
+  padding-left: 30px;
+}
+@media (max-width: 768px) {
+  .wrap-contacts {
+		position: relative;
+    display: inline-block;
+  }
+  .colomn__left {
+    width: 100%;
+  }
+  .contact__head {
+    padding-top: 30px;
+  }
+}
+
+.contact_item{
+	position: absolute;
+	top: 5%;
+	right: 4%;
+	font-family: Fira Sans;
+	font-style: normal;
+	font-weight: 900;
+	font-size: 180px;
+	line-height: 148px;
+	text-align: left;
+	color: rgba(0, 0, 0, 0.03);
+	@media (max-width:920px){
+		display: none;
+	}
+}
+
+
+//<SLIDER>--------------------------------------------------------------
+
+.slick-list {
+  width: 100px;
+}
+.draggable {
+  width: 300px;
+}
+.slideContent__body {
+  display: block;
+}
+.colomn__left {
+  display: flex;
+  flex: 1 0 33%;
+  margin-right: 1%;
+}
+.colomn__right {
+  display: flex;
+  flex: 1 1 66%;
+}
+.portfolio {
+  position: relative;
+}
+.portfolio__item {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 5%;
+  z-index: -1;
+  @media (max-width: 425px) {
+    display: none;
+  }
+}
+.portfolio__item-text {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.subtitle-web::before {
+  content: "";
+  display: block;
+  width: 88px;
+  height: 1px;
+  background-color: #323232;
+  margin-bottom: 5px;
+}
+
+
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================>
+@import "slider.scss";
+@import "forms.scss";
+@import "ui.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================>

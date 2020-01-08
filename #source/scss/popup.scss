@@ -24,6 +24,7 @@
 	@include scale(0);
 	@include anim(0.3s, 0s);
 	position: relative;
+	padding: 10%;
 	max-width: 1230px;
 	margin: 0px auto;
 	background-color: #fff;
@@ -31,7 +32,6 @@
 
 .popup__txt{
 	font-size: 16px;
-	padding: 50px;
 	color: rgb(39, 39, 39);
 }
 .popup-close {
@@ -41,7 +41,7 @@
 	top: 0px;
 	right: 0px;
 	cursor: pointer;
-	background: url('../img/icons/close.png') 0 0 no-repeat;
+	background: url('/img/icons/close.png') 0 0 no-repeat;
 }
 .popup-video{
 	.popup-close{width: 40px;height: 40px;background-color: #000;top: 0;right: 0;}

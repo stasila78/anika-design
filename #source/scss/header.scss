@@ -105,18 +105,19 @@
 
 	.header__nav {
 		position: fixed;
-		top: -100%;
-		left: 0;
-		width: 100%;
+		left: -100%;
+		top: 0;
+		width: 90%;
 		overflow: auto;
 		transition: all 0.3s ease 0s;
 		background-color: #ffffff;
 		padding: 100px 10px 20px 30px;
 	}
 	.header__nav.active{
-		top: 0px;
+		left: 0px;
 		height: 100%;
 	}
+
 
 	.header__ul{
 		@media (max-width:1020px){

@@ -920,6 +920,8 @@ function tip(){
 	});
 }
 
+new WOW().init();
+
 
 // Scroll to specific values
 // scrollTo is the same

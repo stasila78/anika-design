@@ -441,7 +441,7 @@ $('form button[type=submit]').click(function(){
 		*/
 
 		//ОПТРАВКА ФОРМЫ
-		/*
+		
 		function showResponse(html){
 			if(!form.hasClass('nomessage')){
 				showMessage(messagehtml);
@@ -453,7 +453,30 @@ $('form button[type=submit]').click(function(){
 		var options={
 			success:showResponse
 		};
-			form.ajaxForm(options);
+			form.ajaxForm({
+				type: "POST",
+				url: "mail.php",
+				dataType: 'json',
+				contentType: false,
+				processData: false,
+				data: formData,
+				success: function (data) {
+						$(form).find('.response').remove();
+						if (data.status == 'error') {
+								$.popup.close('all');
+								$.popup.open('<div class="popup popup-message">' + data.msg + '</div></div>', {
+										touch: false,
+								});
+								$(form)[0].reset();
+						} else {
+								$.popup.close('all');
+								$.popup.open('<div class="popup popup-message">' + data.msg + '</div></div>', {
+										touch: false,
+								});
+								$(form)[0].reset();
+						}
+				}
+			});
 		
 
 		setTimeout(function(){
@@ -467,7 +490,7 @@ $('form button[type=submit]').click(function(){
 		},0);
 
 		return false;
-		*/
+	
 
 		if(ms!=null && ms!=''){
 			showMessageByClass(ms);

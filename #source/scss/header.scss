@@ -101,6 +101,7 @@
 	.header__burger.active:after{
 		transform:rotate(-45deg);
 		bottom: 9px;
+		
 	}
 
 	.header__nav {
@@ -140,6 +141,7 @@
 .button-up{
 	color: #ffffff;
 	text-transform: uppercase;
+	font-size: 14px;
 	letter-spacing: 0.105em;
 	padding: 16px 60px;
 	background-color: #000;
